@@ -58,6 +58,8 @@ const INITIAL_STATE = {
 export const CART_ACTION_TYPES = {
   SET_CART_ITEMS: 'SET_CART_ITEMS',
   SET_IS_CART_OPEN: 'SET_IS_CART_OPEN',
+  SET_CART_COUNT: 'SET_CART_COUNT',
+  SET_CART_TOTAL: 'SET_CART_TOTAL',
 };
 
 const cartReducer = (state, action) => {
@@ -82,29 +84,7 @@ const cartReducer = (state, action) => {
 };
 
 export const CartProvider = ({ children }) => {
-  /*
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
-  const [cartTotal, setCartTotal] = useState(0);
-
-  useEffect(() => {
-    const newCartCount = cartItems.reduce(
-      (total, cartItem) => total + cartItem.quantity,
-      0
-    );
-    setCartCount(newCartCount);
-  }, [cartItems]);
-
-  useEffect(() => {
-    const newCartTotal = cartItems.reduce(
-      (total, cartItem) => total + cartItem.quantity * cartItem.price,
-      0
-    );
-    setCartTotal(newCartTotal);
-  }, [cartItems]);
-
-  */
+ 
   const [{ cartItems, isCartOpen, cartCount, cartTotal }, dispatch] =
     useReducer(cartReducer, INITIAL_STATE);
 
